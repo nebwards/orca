@@ -116,6 +116,7 @@ public interface ProtoBufCodec<T> {
             buf.unwrap().putDouble(value);
         }
     };
+
     ProtoBufCodec<Integer> VAR_INT = new ProtoBufCodec<>() {
         @Override
         public Integer read(ProtoBuf buf) {
@@ -127,6 +128,7 @@ public interface ProtoBufCodec<T> {
             VarLenEncoding.writeVarInt(buf.unwrap(), value);
         }
     };
+
     ProtoBufCodec<String> STRING = new ProtoBufCodec<>() {
         @Override
         public String read(ProtoBuf buf) {
@@ -143,6 +145,7 @@ public interface ProtoBufCodec<T> {
             buf.unwrap().put(value.getBytes(StandardCharsets.UTF_8));
         }
     };
+
     ProtoBufCodec<Integer> PACKET_LENGTH = new ProtoBufCodec<>() {
         @Override
         public Integer read(ProtoBuf buf) {
