@@ -28,6 +28,7 @@ public class TagStringWriter implements TagWriter<StringBuilder> {
     private static final String COMPOUND_OPEN = "{";
     private static final String COMPOUND_CLOSE = "}";
     private static final String COMPOUND_DELIMITER = ",";
+    private static final String KEY_VALUE_SEPARATOR = ":";
 
     public static String stringify(CompoundTag tag) {
         StringBuilder out = new StringBuilder();
@@ -48,7 +49,7 @@ public class TagStringWriter implements TagWriter<StringBuilder> {
 
     @Override
     public void writeNamed(StringBuilder out, CompoundTag.Named tag) {
-        out.append(COMPOUND_OPEN).append(escapeString(tag.name())).append(COMPOUND_DELIMITER);
+        out.append(COMPOUND_OPEN);
         appendKeyValue(out, tag.name(), tag.tag());
         out.append(COMPOUND_CLOSE);
     }
